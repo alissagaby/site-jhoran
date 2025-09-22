@@ -7,18 +7,26 @@
 </head>
 <body>
 
-  <!-- login -->
-  <div class="container">
-    <div class="card">
-      <h2>Login ⋆</h2>
-      <p>coloca teu nome e a senha, amor</p>
-      <form>
-        <input type="text" placeholder="seu nome" required><br>
-        <input id="senha" type="password" placeholder="senha" required pattern="110725"><br>
-        <input class="btn" type="submit" value="Entrar ⋆">
-      </form>
-    </div>
+  <!-- input de senha escondido -->
+<input type="password" id="senha" pattern="110725" style="display:none;">
+
+<!-- login -->
+<div class="container">
+  <div class="card">
+    <h2>Login </h2>
+    <p>coloca teu nome e a senha, amor</p>
+    <form>
+      <input type="text" placeholder="seu nome" required>
+      <input id="senhaInput" type="password" placeholder="senha" required pattern="110725">
+      <label for="senhaInput" class="btn">Entrar ⋆</label>
+    </form>
   </div>
+</div>
+
+<!-- página principal -->
+<div class="main">
+  <!-- conteúdo principal aqui -->
+</div>
 
   <!-- página principal -->
   <div class="main">
