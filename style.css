@@ -1,3 +1,4 @@
+/* --- estilo geral --- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-/* layout centralizado do login */
+/* --- login --- */
 .container {
   display: flex;
   justify-content: center;
@@ -55,28 +56,31 @@ input[type="text"], input[type="password"] {
   background: #f48fb1;
 }
 
-/* animação de corações pulsando no login */
-@keyframes jump {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
-  100% { transform: translateY(0) scale(1); opacity: 0; }
+/* --- animação de corações pulsando nas caixinhas --- */
+@keyframes pulse {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+  50% { transform: scale(1.2) rotate(10deg); opacity: 0.7; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
 }
 
-.login-heart {
-  position: absolute;
-  color: #fff;
-  font-size: 20px;
-  animation: jump 1s ease-in-out infinite;
-}
-
-/* página principal */
+/* --- página principal --- */
 .main {
-  display: none;
+  display: none;  /* esconde inicialmente */
   padding: 30px;
   background: linear-gradient(135deg, #fce4ec, #c8e6c9);
   min-height: 100vh;
 }
 
+/* --- mostrar a página principal quando senha correta --- */
+#senhaInput:valid ~ .main {
+  display: block;
+}
+
+#senhaInput:valid ~ .container {
+  display: none;
+}
+
+/* --- caixas grandes e pequenas --- */
 .box {
   background: white;
   border-radius: 20px;
@@ -95,20 +99,7 @@ p {
   line-height: 1.6;
 }
 
-/* truque de senha */
-#senha:valid ~ .main {
-  display: block;
-}
-#senha:valid ~ .container {
-  display: none;
-}
-
-/* senha correta */
-#senha {
-  pattern: "110725";
-}
-
-/* caixas pequenas em grid */
+/* grid das caixas pequenas */
 .boxes-container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
@@ -126,7 +117,7 @@ p {
   overflow: hidden;
 }
 
-/* Corações pulsando nas caixas pequenas */
+/* corações pulsando nas caixas pequenas */
 .box-small::before,
 .box-small::after {
   content: '❤';
@@ -149,13 +140,7 @@ p {
   transform: rotate(25deg);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-  50% { transform: scale(1.2) rotate(10deg); opacity: 0.7; }
-  100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-}
-
-/* imagem final */
+/* --- imagem final --- */
 .image-box img {
   display: block;
   margin: 10px auto;
